@@ -1,0 +1,55 @@
+url = "https://crates.io"
+name = "crates.io"
+cron = "0   0   10     *       *  *  *"
+window_width = 1280
+window_height = 1024
+step_timeout = 15000
+step_interval = 1000
+retry = [ 60, 300, 600 ]
+
+# wait before page is ready
+[[steps]]
+kind = "wait"
+exec = """document.querySelector("#stats div.downloads span.num") ? true : false"""
+
+# get count of stars
+[[steps]]
+kind = "value"
+key = "downloads"
+exec = """(() => {
+    const el = document.querySelector("#stats div.downloads span.num");
+
+    // red border
+    el.parentNode.style.borderColor = "red";
+    el.parentNode.style.borderStyle = "solid";
+
+    return parseInt(el.textContent.split(',').join(''));
+})()"""
+
+    [[steps.levels]]
+    name = "green"
+    more = 1
+
+# get count of issues
+[[steps]]
+kind = "value"
+key = "crates"
+exec = """(() => {
+    const el = document.querySelector("#stats div.crates span.num");
+
+    // red border
+    el.parentNode.style.borderColor = "red";
+    el.parentNode.style.borderStyle = "solid";
+
+    return parseInt(el.textContent.split(',').join(''));
+})()"""
+
+    [[steps.levels]]
+    name = "green"
+    more = 1
+
+
+# take screenshot
+[[steps]]
+kind = "screenshot"
+key = "stats"
