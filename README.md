@@ -1,10 +1,10 @@
 ## CYWAD demo
 
-This is demo how to use and deploy [CYWAD](https://github.com/estin/cywad) to [Heroku](https://heroku.com)
+This is a demo demonstrating how to use [CYWAD](https://github.com/estin/cywad) and deploy to [Heroku](https://heroku.com).
 
-[Live demo](http://cywad.herokuapp.com/) on [Heroku](https://heroku.com) free quota:
-- please be patient the app must wake up
-- scheduler would works only on running app (runs each minute)
+[Live demo](https://cywad.herokuapp.com/) on [Heroku](https://heroku.com) free quota:
+- Please be patient, it will take some time for the app to wake up
+- scheduler would work only on running app (the default interval is 1 minute)
 
 Based on [Zenika/alpine-chrome](https://github.com/Zenika/alpine-chrome).
 
