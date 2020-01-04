@@ -1,6 +1,6 @@
 ## CYWAD demo
 
-This is a demo demonstrating how to use [CYWAD](https://github.com/estin/cywad) and deploy to [Heroku](https://heroku.com).
+This is a demo demonstrating how to use [cywad](https://github.com/estin/cywad) and deploy to [Heroku](https://heroku.com).
 
 [Live demo](https://cywad.herokuapp.com/) on [Heroku](https://heroku.com) free quota:
 - Please be patient, it will take some time for the app to wake up
@@ -9,8 +9,8 @@ This is a demo demonstrating how to use [CYWAD](https://github.com/estin/cywad) 
 Based on [Zenika/alpine-chrome](https://github.com/Zenika/alpine-chrome).
 
 In Dockerfile:
- - download and compile [CYWAD](https://github.com/estin/cywad) backend
- - download and compile [CYWAD-PWA](https://github.com/estin/cywad-pwa) frontend
+ - download and compile [cywad](https://github.com/estin/cywad) backend
+ - download and compile [cywad-pwa](https://github.com/estin/cywad-pwa) frontend
 
 For local start
 ```bash
