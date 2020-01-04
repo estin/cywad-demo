@@ -4,9 +4,9 @@ This is demo how to use and deploy [CYWAD](https://github.com/estin/cywad) to [H
 
 [Live demo](http://cywad.herokuapp.com/) on [Heroku](https://heroku.com) free quota:
 - please be patient the app must wake up
-- scheduler would works only on running app
+- scheduler would works only on running app (runs each minute)
 
-Based [Zenika/alpine-chrome](https://github.com/Zenika/alpine-chrome).
+Based on [Zenika/alpine-chrome](https://github.com/Zenika/alpine-chrome).
 
 In Dockerfile:
  - download and compile [CYWAD](https://github.com/estin/cywad) backend

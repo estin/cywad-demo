@@ -1,6 +1,6 @@
 url = "https://github.com/estin/cywad"
 name = "cywad github"
-cron = "0   0   10     *       *  *  *"
+cron = "0   *   *     *       *  *  *"
 window_width = 1280
 window_height = 1024
 step_timeout = 15000

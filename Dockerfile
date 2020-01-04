@@ -1,27 +1,35 @@
 FROM alpine:latest
 
+RUN apk --no-cache add curl rust cargo yarn
+
 # backend
-RUN apk --no-cache add curl rust cargo
+ENV CYWAD_RELEASE 0.1.0
 RUN cd /root \
-    && curl -LO https://github.com/estin/cywad/archive/master.zip \
-    && unzip master.zip \
-    && cd cywad-master \
+    && curl -LO https://github.com/estin/cywad/archive/v$CYWAD_RELEASE.zip \
+    && unzip v$CYWAD_RELEASE.zip \
+    && cd cywad-$CYWAD_RELEASE \
     && cargo build --release --features devtools,server,png_widget
 
 # frontend
-RUN apk --no-cache add yarn
+ENV CYWAD_PWA_RELEASE 0.1.0
 RUN cd /root \
-    && curl -LO https://github.com/estin/cywad-pwa/archive/master.zip \
-    && unzip master.zip \
-    && cd cywad-pwa-master \
+    && curl -LO https://github.com/estin/cywad-pwa/archive/v$CYWAD_PWA_RELEASE.zip \
+    && unzip v$CYWAD_PWA_RELEASE.zip \
+    && cd cywad-pwa-$CYWAD_PWA_RELEASE \
     && yarn install \ 
     && yarn build 
 
 
+RUN cd /root \
+    && mv cywad-$CYWAD_RELEASE cywad-release \
+    && mv cywad-pwa-$CYWAD_PWA_RELEASE cywad-pwa-release
+
+
 # final stage
 FROM zenika/alpine-chrome
-COPY --from=0 /root/cywad-master/target/release/cywad /usr/bin
-COPY --from=0 /root/cywad-pwa-master/build /opt/cywad-pwa
+COPY --from=0 /root/cywad-release/target/release/cywad /usr/bin
+COPY --from=0 /root/cywad-pwa-release/build /opt/cywad-pwa
+COPY --from=0 /root/cywad-release/openapi.yaml /opt/cywad-pwa
 
 USER root
 ADD config /opt/cywad-config
