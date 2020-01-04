@@ -31,13 +31,13 @@ exec = """(() => {
     more = 50
 
     [[steps.levels]]
-    name = "yellow"
-    less = 50
-    more = 10
-
-    [[steps.levels]]
     name = "red"
     less = 10
+
+    [[steps.levels]]
+    name = "yellow"
+    less = 50
+
 
 # get count of issues
 [[steps]]
