@@ -18,7 +18,7 @@ $ docker build -t cywad-demo .
 $ docker run --rm -e PORT=8000 -p 8000:8000 -it cywad-demo
 ```
 
-To run with yours config
+to run with your config
 ```bash
 $ docker run --rm -e PORT=8000 -p 8000:8000 -v $(pwd)/config:/opt/cywad-config -it cywad-demo
 ```
