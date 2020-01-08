@@ -1,6 +1,6 @@
 ## CYWAD demo
 
-This is a demo demonstrating how to use [cywad](https://github.com/estin/cywad) and deploy to [Heroku](https://heroku.com).
+This is a demonstrating how to use [cywad](https://github.com/estin/cywad) and deploy to [Heroku](https://heroku.com).
 
 [Live demo](https://cywad.herokuapp.com/) on [Heroku](https://heroku.com) free quota:
 - Please be patient, it will take some time for the app to wake up
