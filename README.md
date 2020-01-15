@@ -12,6 +12,10 @@ In Dockerfile:
  - download and compile [cywad](https://github.com/estin/cywad) backend
  - download and compile [cywad-pwa](https://github.com/estin/cywad-pwa) frontend
 
+Currently configured:
+ - [config/crates.toml](config/crates.toml) get total of downloads and crates on [crates.io](https://crates.io)
+ - [config/github-cywad.toml](config/github-cywad.toml) github stars/issues/PRs for [cywad](https://github.com/estin/cywad) backend
+
 For local start
 ```bash
 $ docker build -t cywad-demo .
