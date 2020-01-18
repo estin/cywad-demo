@@ -10,14 +10,14 @@ retry = [ 60, 300, 600 ]
 # wait before page is ready
 [[steps]]
 kind = "wait"
-exec = """document.querySelector("#stats div.downloads span.num") ? true : false"""
+exec = """document.querySelector("div[class*='stats'] div[class*='downloads'] span[class*='num']") ? true : false"""
 
 # get count of stars
 [[steps]]
 kind = "value"
 key = "downloads"
 exec = """(() => {
-    const el = document.querySelector("#stats div.downloads span.num");
+    const el = document.querySelector("div[class*='stats'] div[class*='downloads'] span[class*='num']");
 
     // red border
     el.parentNode.style.borderColor = "red";
@@ -35,7 +35,7 @@ exec = """(() => {
 kind = "value"
 key = "crates"
 exec = """(() => {
-    const el = document.querySelector("#stats div.crates span.num");
+    const el = document.querySelector("div[class*='stats'] div[class*='crates'] span[class*='num']");
 
     // red border
     el.parentNode.style.borderColor = "red";
