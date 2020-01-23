@@ -11,7 +11,7 @@ RUN cd /root \
     && cargo build --release --features devtools,server,png_widget
 
 # frontend
-ENV CYWAD_PWA_RELEASE 0.1.0
+ENV CYWAD_PWA_RELEASE 0.1.1
 RUN cd /root \
     && curl -LO https://github.com/estin/cywad-pwa/archive/v$CYWAD_PWA_RELEASE.zip \
     && unzip v$CYWAD_PWA_RELEASE.zip \
