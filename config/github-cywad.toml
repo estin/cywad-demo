@@ -10,20 +10,20 @@ retry = [ 60, 300, 600 ]
 # wait before page is ready
 [[steps]]
 kind = "wait"
-exec = """document.querySelector("div.repohead a[aria-label*='starred']") ? true : false"""
+exec = """document.querySelector("a.js-social-count") ? true : false"""
 
 # get count of stars
 [[steps]]
 kind = "value"
 key = "stars"
 exec = """(() => {
-    const el = document.querySelector("div.repohead a[aria-label*='starred']");
+    const el = document.querySelector("a.js-social-count");
 
     // red border
     el.parentNode.style.borderColor = "red";
     el.parentNode.style.borderStyle = "solid";
 
-    return parseInt(el.getAttribute("aria-label").split(' ')[0]);
+    return parseInt(el.innerHTML);
 })()"""
 
     [[steps.levels]]
@@ -37,51 +37,6 @@ exec = """(() => {
     [[steps.levels]]
     name = "yellow"
     less = 50
-
-
-# get count of issues
-[[steps]]
-kind = "value"
-key = "issues"
-exec = """(() => {
-    const el = document.querySelector("a[data-selected-links^='repo_issues'] span.Counter");
-
-    // red border
-    el.parentNode.style.borderColor = "red";
-    el.parentNode.style.borderStyle = "solid";
-
-    return parseInt(el.textContent);
-})()"""
-
-    [[steps.levels]]
-    name = "green"
-    less = 3
-
-    [[steps.levels]]
-    name = "yellow"
-    less = 5
-
-    [[steps.levels]]
-    name = "red"
-    more = 5
-
-# get count of Pull Requests
-[[steps]]
-kind = "value"
-key = "PRs"
-exec = """(() => {
-    const el = document.querySelector("a[data-selected-links^='repo_pulls'] span.Counter");
-
-    // red border
-    el.parentNode.style.borderColor = "red";
-    el.parentNode.style.borderStyle = "solid";
-
-    return parseInt(el.textContent);
-})()"""
-
-    [[steps.levels]]
-    name = "green"
-    more = 1
 
 
 # take screenshot

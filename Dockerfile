@@ -3,7 +3,7 @@ FROM alpine:latest
 RUN apk --no-cache add curl rust cargo yarn
 
 # backend
-ENV CYWAD_RELEASE 0.1.1
+ENV CYWAD_RELEASE 0.1.2
 RUN cd /root \
     && curl -LO https://github.com/estin/cywad/archive/v$CYWAD_RELEASE.zip \
     && unzip v$CYWAD_RELEASE.zip \
