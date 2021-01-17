@@ -6,11 +6,11 @@ This is a demonstrating how to use [cywad](https://github.com/estin/cywad) and d
 - Please be patient, it will take some time for the app to wake up
 - scheduler would work only on running app (the default interval is 1 minute)
 
-Based on [Zenika/alpine-chrome](https://github.com/Zenika/alpine-chrome).
+Based on [justinribeiro/chrome-headless](https://github.com/justinribeiro/dockerfiles).
 
 In Dockerfile:
  - download and compile [cywad](https://github.com/estin/cywad) backend
- - download and compile [cywad-pwa](https://github.com/estin/cywad-pwa) frontend
+ - build [cywad-yew](https://github.com/estin/cywad/tree/master/cywad-yew) frontend
 
 Currently configured:
  - [config/crates.toml](config/crates.toml) get total of downloads and crates on [crates.io](https://crates.io)
@@ -18,7 +18,10 @@ Currently configured:
 
 For local start
 ```bash
-$ docker build -t cywad-demo .
+$ docker build \
+    --build-arg CYWAD_BASE_API_URL="https://cywad.herokuapp.com" \
+    --build-arg CYWAD_RELEASE="ca9b8cb1a5bd4b9975cd5f19ec0dc3e214e31487" \
+    -t cywad-demo .
 $ docker run --rm -e PORT=8000 -p 8000:8000 -it cywad-demo
 ```
 
